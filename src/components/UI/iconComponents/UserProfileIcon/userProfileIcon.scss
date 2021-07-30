@@ -1,0 +1,20 @@
+.userProfileIcon {
+	svg {
+		width: 24px;
+		height: 24px;
+
+		path {
+			stroke-width: 2px;
+			stroke: $white-theme-userProfile;
+			transition-duration: 0.3s;
+		}
+	}
+}
+
+.userProfileIcon.dark-theme {
+	svg {
+		path {
+			stroke: $dark-theme-userProfile;
+		}
+	}
+}

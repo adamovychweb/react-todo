@@ -1,0 +1,16 @@
+//! Components
+//
+@import '../components/Header/header.scss';
+@import '../components/UserProfile/userProfile.scss';
+//
+//? UI
+@import '../components/UI/ChangeThemeButton/changeThemeButton.scss';
+//
+//? UI iconComponents
+@import '../components/UI/iconComponents/LogoIcon/logoIcon.scss';
+@import '../components/UI/iconComponents/UserProfileIcon/userProfileIcon.scss';
+//
+//!Pages
+//
+//? Main
+@import '../pages/Main/main.scss';

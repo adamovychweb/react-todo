@@ -1,0 +1,9 @@
+.wrapper {
+	height: 100%;
+	background-color: $white-theme-background;
+	transition-duration: 0.3s;
+}
+
+.wrapper.dark-theme {
+	background-color: $dark-theme-background;
+}

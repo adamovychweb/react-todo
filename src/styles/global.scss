@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+	scrollbar-width: none;
+}
+
+.container {
+	max-width: 1320px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+}
+
+.App {
+	height: 100vh;
+}

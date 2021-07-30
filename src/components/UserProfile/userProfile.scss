@@ -1,0 +1,22 @@
+.userProfile {
+	display: flex;
+	&-icon {
+		margin-right: 17px;
+	}
+
+	&-name {
+		color: $white-theme-userProfile;
+		font-family: $font-montserrat;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		transition-duration: 0.3s;
+		padding-top: 1px;
+	}
+}
+
+.userProfile.dark-theme {
+	.userProfile-name {
+		color: $dark-theme-userProfile;
+	}
+}
