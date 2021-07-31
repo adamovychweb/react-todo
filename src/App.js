@@ -31,7 +31,7 @@ class App extends React.Component {
 			<div className='App'>
 				<ThemeContext.Provider value={this.state.theme}>
 					<ChangeThemeContext.Provider value={this.changeTheme}>
-						<BrowserRouter>
+						<BrowserRouter basename={process.env.PUBLIC_URL}>
 							<Switch>
 								<Route path={['/', '/index', '/index.html']} exact>
 									<Main />
