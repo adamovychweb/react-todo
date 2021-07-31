@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Main from './pages/Main';
 
@@ -31,13 +31,13 @@ class App extends React.Component {
 			<div className='App'>
 				<ThemeContext.Provider value={this.state.theme}>
 					<ChangeThemeContext.Provider value={this.changeTheme}>
-						<BrowserRouter basename={process.env.PUBLIC_URL}>
+						<HashRouter>
 							<Switch>
 								<Route path={['/', '/index', '/index.html']} exact>
 									<Main />
 								</Route>
 							</Switch>
-						</BrowserRouter>
+						</HashRouter>
 					</ChangeThemeContext.Provider>
 				</ThemeContext.Provider>
 			</div>

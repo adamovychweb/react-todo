@@ -1,22 +1,23 @@
 {
-	"files": {
-		"main.css": "/static/css/main.44210962.chunk.css",
-		"main.js": "/static/js/main.9ea047ca.chunk.js",
-		"main.js.map": "/static/js/main.9ea047ca.chunk.js.map",
-		"runtime-main.js": "/static/js/runtime-main.82030b08.js",
-		"runtime-main.js.map": "/static/js/runtime-main.82030b08.js.map",
-		"static/js/2.f95ba26a.chunk.js": "/static/js/2.f95ba26a.chunk.js",
-		"static/js/2.f95ba26a.chunk.js.map": "/static/js/2.f95ba26a.chunk.js.map",
-		"static/js/3.cddc5b1d.chunk.js": "/static/js/3.cddc5b1d.chunk.js",
-		"static/js/3.cddc5b1d.chunk.js.map": "/static/js/3.cddc5b1d.chunk.js.map",
-		"index.html": "/index.html",
-		"static/css/main.44210962.chunk.css.map": "/static/css/main.44210962.chunk.css.map",
-		"static/js/2.f95ba26a.chunk.js.LICENSE.txt": "/static/js/2.f95ba26a.chunk.js.LICENSE.txt"
-	},
-	"entrypoints": [
-		"static/js/runtime-main.82030b08.js",
-		"static/js/2.f95ba26a.chunk.js",
-		"static/css/main.44210962.chunk.css",
-		"static/js/main.9ea047ca.chunk.js"
-	]
+  "files": {
+    "main.css": "/react-todo/build/static/css/main.e6fc4eb3.chunk.css",
+    "main.js": "/react-todo/build/static/js/main.0573f0ec.chunk.js",
+    "main.js.map": "/react-todo/build/static/js/main.0573f0ec.chunk.js.map",
+    "runtime-main.js": "/react-todo/build/static/js/runtime-main.cb5a59ae.js",
+    "runtime-main.js.map": "/react-todo/build/static/js/runtime-main.cb5a59ae.js.map",
+    "static/js/2.3b823a4f.chunk.js": "/react-todo/build/static/js/2.3b823a4f.chunk.js",
+    "static/js/2.3b823a4f.chunk.js.map": "/react-todo/build/static/js/2.3b823a4f.chunk.js.map",
+    "static/js/3.cddc5b1d.chunk.js": "/react-todo/build/static/js/3.cddc5b1d.chunk.js",
+    "static/js/3.cddc5b1d.chunk.js.map": "/react-todo/build/static/js/3.cddc5b1d.chunk.js.map",
+    "index.html": "/react-todo/build/index.html",
+    "static/css/main.e6fc4eb3.chunk.css.map": "/react-todo/build/static/css/main.e6fc4eb3.chunk.css.map",
+    "static/js/2.3b823a4f.chunk.js.LICENSE.txt": "/react-todo/build/static/js/2.3b823a4f.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/react-todo/build/static/media/roboto-v27-latin-900.b555d228.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb5a59ae.js",
+    "static/js/2.3b823a4f.chunk.js",
+    "static/css/main.e6fc4eb3.chunk.css",
+    "static/js/main.0573f0ec.chunk.js"
+  ]
 }
