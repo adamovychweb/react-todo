@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import ThemeContext from '../../contexts/ThemeContext';
 
 import Header from '../../components/Header/Header';
 
-class Main extends React.Component {
-	render() {
-		return (
-			<ThemeContext.Consumer>
-				{(theme) => (
-					<div className={`wrapper ${theme}`}>
-						<Header />
-						<main className='container'></main>
-					</div>
-				)}
-			</ThemeContext.Consumer>
-		);
-	}
-}
+import './main.scss';
+
+const Main = () => {
+	const themeContext = useContext(ThemeContext);
+
+	return (
+		<div className={`wrapper ${themeContext.theme}`}>
+			<Header />
+			<main className='container'></main>
+		</div>
+	);
+};
 
 export default Main;

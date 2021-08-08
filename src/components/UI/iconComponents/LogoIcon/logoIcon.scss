@@ -3,7 +3,7 @@
 		width: 116px;
 		height: 40px;
 		path {
-			fill: $white-theme-logoColor;
+			fill: #324793;
 			transition-duration: 0.3s;
 		}
 	}
@@ -12,7 +12,7 @@
 .logoIcon.dark-theme {
 	svg {
 		path {
-			fill: $dark-theme-logoColor;
+			fill: #bccbff;
 		}
 	}
 }

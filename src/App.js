@@ -1,48 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Main from './pages/Main';
 
 import ThemeContext from './contexts/ThemeContext';
-import ChangeThemeContext from './contexts/ChangeThemeContext';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
+const App = () => {
+	let oldTheme = localStorage.getItem('Theme');
 
-		let theme = localStorage.getItem('Theme');
+	const [theme, setTheme] = useState(oldTheme ? oldTheme : 'light-theme');
 
-		this.state = {
-			theme: theme ? theme : 'light-theme',
-		};
+	const newTheme = () => {
+		const updateTheme = theme === 'light-theme' ? 'dark-theme' : 'light-theme';
+		setTheme(updateTheme);
+		localStorage.setItem('Theme', updateTheme);
+	};
 
-		this.changeTheme = this.changeTheme.bind(this);
-	}
+	const themeContext = {
+		theme: theme,
+		setTheme: newTheme,
+	};
 
-	changeTheme() {
-		const newTheme =
-			this.state.theme === 'light-theme' ? 'dark-theme' : 'light-theme';
-		this.setState({ theme: newTheme });
-		localStorage.setItem('Theme', newTheme);
-	}
-
-	render() {
-		return (
-			<div className='App'>
-				<ThemeContext.Provider value={this.state.theme}>
-					<ChangeThemeContext.Provider value={this.changeTheme}>
-						<HashRouter>
-							<Switch>
-								<Route path={['/', '/index', '/index.html']} exact>
-									<Main />
-								</Route>
-							</Switch>
-						</HashRouter>
-					</ChangeThemeContext.Provider>
-				</ThemeContext.Provider>
-			</div>
-		);
-	}
-}
+	return (
+		<div className='App'>
+			<ThemeContext.Provider value={themeContext}>
+				<HashRouter>
+					<Switch>
+						<Route path={['/', '/index', '/index.html']} exact>
+							<Main />
+						</Route>
+					</Switch>
+				</HashRouter>
+			</ThemeContext.Provider>
+		</div>
+	);
+};
 
 export default App;

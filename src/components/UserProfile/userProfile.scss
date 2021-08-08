@@ -5,8 +5,8 @@
 	}
 
 	&-name {
-		color: $white-theme-userProfile;
-		font-family: $font-montserrat;
+		color: #4d4d4d;
+		font-family: 'Montserrat';
 		font-weight: 500;
 		font-size: 18px;
 		line-height: 22px;
@@ -17,6 +17,6 @@
 
 .userProfile.dark-theme {
 	.userProfile-name {
-		color: $dark-theme-userProfile;
+		color: #fff;
 	}
 }

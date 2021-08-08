@@ -6,7 +6,7 @@
 		height: 35px;
 		position: relative;
 		border-radius: 50px;
-		background-color: $white-theme-switchThemeButtonBackground;
+		background-color: #5163a3;
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 		transition-duration: 0.3s;
 
@@ -18,7 +18,7 @@
 			position: absolute;
 			top: 4px;
 			left: 5px;
-			background-color: $white-theme-switchThemeButtonSwitcher;
+			background-color: #fff;
 			border-radius: 100%;
 			transform: translateX(0px);
 			transition-duration: 0.3s;
@@ -28,10 +28,10 @@
 
 .changeThemeButton.dark-theme {
 	button {
-		background-color: $dark-theme-switchThemeButtonBackground;
+		background-color: #fff;
 
 		&::before {
-			background-color: $dark-theme-switchThemeButtonSwitcher;
+			background-color: #324793;
 			transform: translateX(30px);
 		}
 	}
