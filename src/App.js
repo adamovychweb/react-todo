@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
-import Main from './pages/Main';
+import Todo from './pages/Todo';
 
 import ThemeContext from './contexts/ThemeContext';
 
 const App = () => {
 	let oldTheme = localStorage.getItem('Theme');
-
-	const [theme, setTheme] = useState(oldTheme ? oldTheme : 'light-theme');
+	const [theme, setTheme] = useState(oldTheme || 'light-theme');
 
 	const newTheme = () => {
 		const updateTheme = theme === 'light-theme' ? 'dark-theme' : 'light-theme';
 		setTheme(updateTheme);
-		localStorage.setItem('Theme', updateTheme);
 	};
+
+	useEffect(() => {
+		localStorage.setItem('Theme', theme);
+		console.log('Effect');
+	}, [theme]);
 
 	const themeContext = {
 		theme: theme,
@@ -27,7 +30,7 @@ const App = () => {
 				<HashRouter>
 					<Switch>
 						<Route path={['/', '/index', '/index.html']} exact>
-							<Main />
+							<Todo />
 						</Route>
 					</Switch>
 				</HashRouter>
