@@ -1,19 +1,8 @@
 .header {
 	padding: 70px 0 50px 0;
+
 	&-inner {
 		display: flex;
 		justify-content: space-between;
-	}
-	&-right {
-		padding-top: 3px;
-		display: flex;
-
-		&-btn {
-			padding-right: 70px;
-		}
-
-		&-user {
-			padding-top: 5px;
-		}
 	}
 }

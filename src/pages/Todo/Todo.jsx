@@ -5,6 +5,7 @@ import ThemeContext from '../../contexts/ThemeContext';
 import Header from '../../components/Header/Header';
 import Todos from '../../components/pages/Todo/Todos';
 import TodoPopUp from '../../components/pages/Todo/TodoPopUp';
+import AddNewTaskIcon from '../../components/UI/iconComponents/AddNewTaskIcon/AddNewTaskIcon';
 
 import './todo.scss';
 
@@ -50,11 +51,7 @@ const Todo = () => {
 
 	useEffect(() => {
 		localStorage.setItem('Todos', JSON.stringify(todos));
-		console.log('Effect');
 	}, [todos]);
-
-	//!CONSOLE LOG
-	console.log(todos);
 
 	const activeTodos = todos.filter((task) => task.completed === false);
 	const completedTodos = todos.filter((task) => task.completed === true);
@@ -83,11 +80,24 @@ const Todo = () => {
 						toggleTaskStatus={toggleTaskStatus}
 						deleteTask={deleteTask}
 					>
-						<h2>Заплановані</h2>
-						<p>Залишилось: {activeTodos.length}</p>
-						<button onClick={() => showPopUp(false)}>
-							Добавте нове завдання..
-						</button>
+						<div className='todos-top'>
+							<h2>Заплановані</h2>
+							<div className='todos-top-leftTasks'>
+								<p>Залишилось:</p>
+								<p>{activeTodos.length}</p>
+							</div>
+						</div>
+
+						<div className='todos-button'>
+							<button onClick={() => showPopUp(false)}>
+								<div className='todos-button-inner'>
+									<AddNewTaskIcon />
+									<p className='todos-button-inner-text'>
+										Добавте нове завдання..
+									</p>
+								</div>
+							</button>
+						</div>
 					</Todos>
 
 					<Todos
@@ -96,8 +106,13 @@ const Todo = () => {
 						toggleTaskStatus={toggleTaskStatus}
 						deleteTask={deleteTask}
 					>
-						<h2>Виконані</h2>
-						<p>Всього: {completedTodos.length}</p>
+						<div className='todos-top todos-completed'>
+							<h2>Виконані</h2>
+							<div className='todos-top-leftTasks'>
+								<p>Всього:</p>
+								<p>{completedTodos.length}</p>
+							</div>
+						</div>
 					</Todos>
 				</div>
 

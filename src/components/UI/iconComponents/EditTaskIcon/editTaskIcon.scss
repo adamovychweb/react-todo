@@ -1,0 +1,20 @@
+.editTaskIcon {
+	svg {
+		width: 22px;
+		height: 22px;
+
+		path {
+			stroke: #595959;
+			stroke-width: 1.5px;
+			transition-duration: 0.3s;
+		}
+	}
+}
+
+.editTaskIcon.dark-theme {
+	svg {
+		path {
+			stroke: #e3e3e3;
+		}
+	}
+}

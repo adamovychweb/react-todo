@@ -1,3 +1,75 @@
 .todos {
-	width: 50%;
+	padding-top: 106px;
+	width: 550px;
+
+	&-top {
+		border-bottom: 1px solid #e3e3e3;
+		transition-duration: 0.3s;
+		padding-bottom: 28px;
+
+		h2 {
+			font-family: Montserrat;
+			font-weight: 600;
+			font-size: 26px;
+			line-height: 32px;
+			color: #000000;
+			transition-duration: 0.3s;
+			padding-bottom: 10px;
+		}
+
+		&-leftTasks {
+			display: flex;
+
+			p {
+				font-family: Montserrat;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 20px;
+				color: #808080;
+				transition-duration: 0.3s;
+				padding-right: 10px;
+			}
+		}
+	}
+	&-button {
+		margin: 36px 38px 13px 38px;
+
+		button {
+			padding-right: 10px;
+			background-color: transparent;
+		}
+		&-inner {
+			display: flex;
+
+			&-text {
+				padding: 4px 0 0 20px;
+				font-family: Montserrat;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 22px;
+				color: #808080;
+			}
+		}
+	}
+}
+
+.todos.dark-theme {
+	.todos-top {
+		border-bottom: 1px solid #464646;
+
+		h2 {
+			color: #ffffff;
+		}
+
+		&-leftTasks p {
+			color: #b9b9b9;
+		}
+	}
+	&-button-inner-text {
+		color: #979797;
+	}
+}
+
+.todos-top.todos-completed {
+	margin-bottom: 50px;
 }

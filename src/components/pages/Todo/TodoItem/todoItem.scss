@@ -1,8 +1,66 @@
 .todoItem {
-	cursor: pointer;
 	display: flex;
+	margin-left: 30px;
+	padding: 10px 0px 7px 12px;
+	transition-duration: 0.2s;
 
-	p {
-		margin: 0 20px;
+	&-toggleStatus {
+		margin-right: 24px;
+		button {
+			background-color: transparent;
+		}
+	}
+
+	&-itemTitle {
+		cursor: pointer;
+		width: 100%;
+
+		p {
+			font-family: Montserrat;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 22px;
+			color: #000000;
+			transition-duration: 0.3s;
+		}
+	}
+
+	&-editItem {
+		display: none;
+
+		button {
+			background-color: transparent;
+		}
+	}
+	&-deleteItem {
+		display: none;
+
+		margin: 0 8px 0 12px;
+		button {
+			background-color: transparent;
+		}
+	}
+
+	&:hover {
+		background-color: #eff2ff;
+		border-radius: 5px;
+
+		.todoItem-editItem {
+			display: block;
+		}
+		.todoItem-deleteItem {
+			display: block;
+		}
+	}
+}
+
+.todoItem.dark-theme {
+	.todoItem-itemTitle {
+		p {
+			color: #fff;
+		}
+	}
+	&:hover {
+		background-color: #252530;
 	}
 }

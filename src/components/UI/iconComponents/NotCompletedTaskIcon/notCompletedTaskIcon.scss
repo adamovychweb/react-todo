@@ -1,0 +1,19 @@
+.notCompletedTaskIcon {
+	svg {
+		width: 22px;
+		height: 22px;
+		rect {
+			stroke: #324793;
+			stroke-width: 1.5px;
+			transition-duration: 0.3s;
+		}
+	}
+}
+
+.notCompletedTaskIcon.dark-theme {
+	svg {
+		rect {
+			stroke: #7e7e7e;
+		}
+	}
+}

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TodoItem from '../TodoItem';
 import './todos.scss';
+import ThemeContext from '../../../../contexts/ThemeContext';
 
 const Todos = (props) => {
+	const themeContext = useContext(ThemeContext);
+
 	const todos = props.todosArr;
 
 	const todoTasks = todos.map((task) => (
@@ -16,7 +19,7 @@ const Todos = (props) => {
 	));
 
 	return (
-		<div className='todos'>
+		<div className={`todos ${themeContext.theme}`}>
 			{props.children}
 			{todoTasks.reverse()}
 		</div>
