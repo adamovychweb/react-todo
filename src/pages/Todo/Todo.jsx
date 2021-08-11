@@ -30,15 +30,19 @@ const Todo = () => {
 	}, [todos]);
 
 	const addTask = (title, description) => {
-		const newItem = {
-			id: taskIndex,
-			title: title,
-			description: description,
-			completed: false,
-		};
-		setTodos([...todos, newItem]);
-		setTodoPopUP('hidden');
-		newTaskIndex();
+		if (title === '') {
+			alert('Заповніть назву завдання');
+		} else {
+			const newItem = {
+				id: taskIndex,
+				title: title,
+				description: description,
+				completed: false,
+			};
+			setTodos([...todos, newItem]);
+			setTodoPopUP('hidden');
+			newTaskIndex();
+		}
 	};
 
 	const saveEditTask = (title, description, id) => {
