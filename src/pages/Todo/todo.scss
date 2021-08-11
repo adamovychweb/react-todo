@@ -9,6 +9,11 @@
 	background-color: #1a1925;
 }
 
+.wrapper.popUp-shown {
+	height: 100vh;
+	overflow: hidden;
+}
+
 .todo-content {
 	display: flex;
 	justify-content: space-between;

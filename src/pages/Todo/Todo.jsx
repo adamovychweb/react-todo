@@ -85,7 +85,7 @@ const Todo = () => {
 	};
 
 	return (
-		<div className={`wrapper ${themeContext.theme}`}>
+		<div className={`wrapper ${themeContext.theme} popUp-${todoPopUP}`}>
 			<Header />
 			<main className='container'>
 				<div className='todo-content'>
