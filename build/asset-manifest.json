@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-todo/build/static/css/main.8a77daed.chunk.css",
+    "main.css": "/react-todo/build/static/css/main.fa9d252c.chunk.css",
     "main.js": "/react-todo/build/static/js/main.de301f5b.chunk.js",
     "main.js.map": "/react-todo/build/static/js/main.de301f5b.chunk.js.map",
     "runtime-main.js": "/react-todo/build/static/js/runtime-main.3292151a.js",
@@ -10,14 +10,14 @@
     "static/js/3.9f454200.chunk.js": "/react-todo/build/static/js/3.9f454200.chunk.js",
     "static/js/3.9f454200.chunk.js.map": "/react-todo/build/static/js/3.9f454200.chunk.js.map",
     "index.html": "/react-todo/build/index.html",
-    "static/css/main.8a77daed.chunk.css.map": "/react-todo/build/static/css/main.8a77daed.chunk.css.map",
+    "static/css/main.fa9d252c.chunk.css.map": "/react-todo/build/static/css/main.fa9d252c.chunk.css.map",
     "static/js/2.abdfed7b.chunk.js.LICENSE.txt": "/react-todo/build/static/js/2.abdfed7b.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/react-todo/build/static/media/roboto-v27-latin-900.b555d228.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.3292151a.js",
     "static/js/2.abdfed7b.chunk.js",
-    "static/css/main.8a77daed.chunk.css",
+    "static/css/main.fa9d252c.chunk.css",
     "static/js/main.de301f5b.chunk.js"
   ]
 }
