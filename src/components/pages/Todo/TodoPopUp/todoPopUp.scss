@@ -21,8 +21,146 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 455px;
-		height: 400px;
 		background-color: #fff;
 		z-index: 2;
+		margin-top: 55px;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 24px;
+	}
+
+	&-inner {
+		padding: 29px 28px 35px 28px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&-closeIcon {
+			align-self: flex-end;
+		}
+
+		&-title {
+			font-family: Montserrat;
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 29px;
+			color: #313131;
+			padding-top: 13px;
+		}
+
+		&-form {
+			width: 100%;
+			padding: 0 51px 43px 51px;
+
+			form {
+				display: flex;
+				flex-direction: column;
+
+				p {
+					font-family: Montserrat;
+					font-weight: 500;
+					font-size: 15px;
+					line-height: 19px;
+					letter-spacing: 0.02em;
+					color: rgba(0, 0, 0, 0.4);
+					padding: 0 0 4px 5px;
+				}
+
+				input,
+				textarea {
+					border: 1px solid #bdc4c7;
+
+					border-radius: 10px;
+					width: 100%;
+					height: 45px;
+					font-family: Montserrat;
+					font-weight: 500;
+					font-size: 15px;
+					line-height: 19px;
+					color: #000;
+
+					&:focus {
+						border: 2px solid #324793;
+						outline: none;
+					}
+
+					&::placeholder {
+						color: #b3b3b3;
+					}
+				}
+
+				input {
+					padding: 0 24px;
+				}
+
+				textarea {
+					max-width: 100%;
+					min-width: 100%;
+					min-height: 45px;
+					max-height: 90px;
+					margin-bottom: 20px;
+					padding: 12px 24px;
+				}
+
+				button {
+					background: #324793;
+					border-radius: 10px;
+					font-family: Montserrat;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 22px;
+					text-align: center;
+					color: #ffffff;
+					padding: 17px 0;
+				}
+			}
+
+			&-inputNew {
+				margin-top: 43px;
+			}
+
+			&-textareaNew {
+				margin-top: 15px;
+			}
+
+			&-inputEdit {
+				margin-top: 29px;
+			}
+
+			&-textareaEdit {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+.todoPopUp.dark-theme {
+	.todoPopUp-bg {
+		background-color: rgba(160, 160, 160, 0.2);
+	}
+	.todoPopUp-wrapper {
+		background-color: #1a1925;
+		border: none;
+	}
+	.todoPopUp-inner {
+		&-title {
+			color: #e9e9e9;
+			font-weight: 500;
+		}
+
+		&-form {
+			form {
+				input,
+				textarea {
+					border: 1px solid #9c9c9c;
+					background-color: transparent;
+					color: #fff;
+
+					&:focus {
+						border: 2px solid #bccbff;
+						outline: none;
+					}
+				}
+			}
+		}
 	}
 }

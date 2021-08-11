@@ -12,18 +12,33 @@ import './todo.scss';
 const Todo = () => {
 	const themeContext = useContext(ThemeContext);
 
+	const oldTaskIndex = Number(localStorage.getItem('taskIndex'));
+	const [taskIndex, setTaskIndex] = useState(oldTaskIndex || 0);
+
+	const newTaskIndex = () => {
+		const index = taskIndex + 1;
+		setTaskIndex(index);
+		localStorage.setItem('taskIndex', index);
+	};
+
 	const oldTodos = JSON.parse(localStorage.getItem('Todos'));
 	const [todos, setTodos] = useState(oldTodos || []);
 
+	useEffect(() => {
+		console.log();
+		console.log('Todos:', todos);
+	}, [todos]);
+
 	const addTask = (title, description) => {
 		const newItem = {
-			id: todos.length,
+			id: taskIndex,
 			title: title,
 			description: description,
 			completed: false,
 		};
 		setTodos([...todos, newItem]);
 		setTodoPopUP('hidden');
+		newTaskIndex();
 	};
 
 	const saveEditTask = (title, description, id) => {
