@@ -46,14 +46,18 @@ const Todo = () => {
 	};
 
 	const saveEditTask = (title, description, id) => {
-		setTodos([
-			...todos.map((task) =>
-				task.id === id
-					? { ...task, title: title, description: description }
-					: { ...task }
-			),
-		]);
-		setTodoPopUP('hidden');
+		if (title === '') {
+			alert('Заповніть назву завдання');
+		} else {
+			setTodos([
+				...todos.map((task) =>
+					task.id === id
+						? { ...task, title: title, description: description }
+						: { ...task }
+				),
+			]);
+			setTodoPopUP('hidden');
+		}
 	};
 
 	const toggleTaskStatus = (id) => {
