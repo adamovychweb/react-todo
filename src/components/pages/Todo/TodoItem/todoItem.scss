@@ -26,31 +26,32 @@
 		}
 	}
 
-	&-editItem {
+	&-editItem,
+	&-deleteItem {
 		display: none;
+		opacity: 0;
+		animation-name: todoItem-iconsAnim;
+		animation-duration: 0.2s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
 
 		button {
 			background-color: transparent;
 		}
 	}
-	&-deleteItem {
-		display: none;
 
+	&-deleteItem {
 		margin: 0 8px 0 12px;
-		button {
-			background-color: transparent;
-		}
 	}
 
 	&:hover {
 		background-color: #eff2ff;
 		border-radius: 5px;
 
-		.todoItem-editItem {
-			display: block;
-		}
+		.todoItem-editItem,
 		.todoItem-deleteItem {
 			display: block;
+			opacity: 1;
 		}
 	}
 }
@@ -63,5 +64,15 @@
 	}
 	&:hover {
 		background-color: #252530;
+	}
+}
+
+@keyframes todoItem-iconsAnim {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }
