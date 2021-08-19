@@ -8,13 +8,13 @@ const TodoPopUp = (props) => {
 
 	const taskToEdit = props.taskToEdit;
 
-	const PopUpTitle = taskToEdit ? (
+	const popUpTitle = taskToEdit ? (
 		<h2>Редагувати завдання</h2>
 	) : (
 		<h2>Нове завдання</h2>
 	);
 
-	const PopUpButton = taskToEdit ? (
+	const popUpButton = taskToEdit ? (
 		<button
 			onClick={() => props.saveEditTask(title, description, taskToEdit.id)}
 		>
@@ -46,21 +46,30 @@ const TodoPopUp = (props) => {
 		setDescription('');
 	};
 
-	const UserInput = taskToEdit ? (
+	const formInput = taskToEdit ? (
 		<>
-			<p className='todoPopUp-inner-form-inputEdit'>Назва</p>
+			<label
+				htmlFor='todoPopUp-titleForm'
+				className='todoPopUp-inner-form-inputEdit'
+			>
+				Назва
+			</label>
 			<input
 				type='text'
 				value={title}
 				onChange={handleChangeTitle}
-				placeholder=''
+				id='todoPopUp-titleForm'
 			/>
-			<p className='todoPopUp-inner-form-textareaEdit'>Опис</p>
+			<label
+				htmlFor='todoPopUp-descriptionForm'
+				className='todoPopUp-inner-form-textareaEdit'
+			>
+				Опис
+			</label>
 			<textarea
 				value={description}
 				onChange={handleChangeDescription}
-				placeholder=''
-				resize='none'
+				id='todoPopUp-descriptionForm'
 			/>
 		</>
 	) : (
@@ -77,7 +86,6 @@ const TodoPopUp = (props) => {
 				value={description}
 				onChange={handleChangeDescription}
 				placeholder='Опис'
-				resize='none'
 			/>
 		</>
 	);
@@ -93,11 +101,11 @@ const TodoPopUp = (props) => {
 					>
 						<DeleteOrCloseIcon />
 					</div>
-					<div className='todoPopUp-inner-title'>{PopUpTitle}</div>
+					<div className='todoPopUp-inner-title'>{popUpTitle}</div>
 					<div className='todoPopUp-inner-form'>
 						<form onSubmit={handleSubmit}>
-							{UserInput}
-							{PopUpButton}
+							{formInput}
+							{popUpButton}
 						</form>
 					</div>
 				</div>
