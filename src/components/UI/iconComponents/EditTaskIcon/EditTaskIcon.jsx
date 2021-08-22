@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './editTaskIcon.scss';
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
 
 const EditTaskIcon = () => {
 	const themeContext = useContext(ThemeContext);

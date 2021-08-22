@@ -54,19 +54,10 @@
 				display: flex;
 				flex-direction: column;
 
-				label {
-					font-family: Montserrat;
-					font-weight: 500;
-					font-size: 15px;
-					line-height: 19px;
-					letter-spacing: 0.02em;
-					color: rgba(0, 0, 0, 0.4);
-					padding: 0 0 4px 5px;
-				}
-
-				input,
-				textarea {
+				input {
 					border: 1px solid #bdc4c7;
+					padding: 0 24px;
+					margin-bottom: 20px;
 
 					border-radius: 10px;
 					width: 100%;
@@ -87,19 +78,6 @@
 					}
 				}
 
-				input {
-					padding: 0 24px;
-				}
-
-				textarea {
-					max-width: 100%;
-					min-width: 100%;
-					min-height: 45px;
-					max-height: 90px;
-					margin-bottom: 20px;
-					padding: 12px 24px;
-				}
-
 				button {
 					background: #324793;
 					border-radius: 10px;
@@ -113,20 +91,37 @@
 				}
 			}
 
-			&-inputNew {
-				margin-top: 43px;
+			&-formNew {
+				margin-top: 30px;
+			}
+		}
+
+		&-editTask {
+			align-self: flex-start;
+			width: 100%;
+			padding: 0 51px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 19px;
+
+			&-description {
+				font-family: Montserrat;
+				font-weight: 500;
+				font-size: 15px;
+				line-height: 19px;
+				letter-spacing: 0.02em;
+				color: rgba(0, 0, 0, 0.4);
+				padding: 30px 0 4px 5px;
 			}
 
-			&-textareaNew {
-				margin-top: 15px;
-			}
+			&-title {
+				color: #000;
+				overflow: hidden;
 
-			&-inputEdit {
-				margin-top: 29px;
-			}
-
-			&-textareaEdit {
-				margin-top: 10px;
+				&-placeholder {
+					color: #b3b3b3;
+				}
 			}
 		}
 	}
@@ -148,12 +143,7 @@
 
 		&-form {
 			form {
-				label {
-					color: #8c8c92;
-				}
-
-				input,
-				textarea {
+				input {
 					border: 1px solid #9c9c9c;
 					background-color: transparent;
 					color: #fff;
@@ -163,6 +153,15 @@
 						outline: none;
 					}
 				}
+			}
+		}
+		&-editTask {
+			&-description {
+				color: #8c8c92;
+			}
+
+			&-title {
+				color: #fff;
 			}
 		}
 	}

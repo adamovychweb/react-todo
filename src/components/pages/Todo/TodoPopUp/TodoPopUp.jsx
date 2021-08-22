@@ -1,107 +1,104 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './todoPopUp.scss';
 import DeleteOrCloseIcon from '../../../UI/iconComponents/DeleteOrCloseIcon/DeleteOrCloseIcon';
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
+import UserTaskContext from '../../../../contexts/UserTask/UserTaskContext';
 
-const TodoPopUp = (props) => {
+const TodoPopUp = ({ taskToEdit, hidePopUp, popUpStatus }) => {
 	const themeContext = useContext(ThemeContext);
+	const userTaskContext = useContext(UserTaskContext);
 
-	const taskToEdit = props.taskToEdit;
-
-	const popUpTitle = taskToEdit ? (
-		<h2>Редагувати завдання</h2>
-	) : (
-		<h2>Нове завдання</h2>
-	);
+	const popUpTitle = taskToEdit ? 'Редагувати завдання' : 'Нове завдання';
 
 	const popUpButton = taskToEdit ? (
 		<button
-			onClick={() => props.saveEditTask(title, description, taskToEdit.id)}
+			onClick={() => {
+				userTaskContext.saveEditTask(title, taskToEdit._id, hidePopUp);
+			}}
 		>
 			Зберегти
 		</button>
 	) : (
-		<button onClick={() => props.addTask(title, description)}>Добавити</button>
+		<button
+			onClick={() => {
+				userTaskContext.addTask(title, hidePopUp);
+			}}
+		>
+			Добавити
+		</button>
 	);
 
 	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
 
 	useEffect(() => {
-		taskToEdit ? setTitle(taskToEdit.title) : setTitle('');
-		taskToEdit ? setDescription(taskToEdit.description) : setDescription('');
+		taskToEdit ? setTitle(taskToEdit.description) : setTitle('');
 	}, [taskToEdit]);
 
 	const handleChangeTitle = (e) => {
 		setTitle(e.target.value);
 	};
 
-	const handleChangeDescription = (e) => {
-		setDescription(e.target.value);
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setTitle('');
-		setDescription('');
 	};
 
 	const formInput = taskToEdit ? (
 		<>
 			<label
 				htmlFor='todoPopUp-titleForm'
-				className='todoPopUp-inner-form-inputEdit'
+				className='todoPopUp-inner-editTask-description'
 			>
-				Назва
+				Редагувати
 			</label>
+
 			<input
 				type='text'
 				value={title}
 				onChange={handleChangeTitle}
 				id='todoPopUp-titleForm'
 			/>
-			<label
-				htmlFor='todoPopUp-descriptionForm'
-				className='todoPopUp-inner-form-textareaEdit'
-			>
-				Опис
-			</label>
-			<textarea
-				value={description}
-				onChange={handleChangeDescription}
-				id='todoPopUp-descriptionForm'
-			/>
 		</>
 	) : (
 		<>
 			<input
-				className='todoPopUp-inner-form-inputNew'
+				className='todoPopUp-inner-form-formNew'
 				type='text'
 				value={title}
 				onChange={handleChangeTitle}
 				placeholder='Назва'
 			/>
-			<textarea
-				className='todoPopUp-inner-form-textareaNew'
-				value={description}
-				onChange={handleChangeDescription}
-				placeholder='Опис'
-			/>
 		</>
 	);
 
+	const todoPopUpInnerEditTaskTitle = title ? (
+		<p className='todoPopUp-inner-editTask-title'>{title}</p>
+	) : (
+		<p className='todoPopUp-inner-editTask-title-placeholder'>
+			{'Тут буде опис :)'}
+		</p>
+	);
+
 	return (
-		<div className={`todoPopUp ${props.popUpStatus} ${themeContext.theme}`}>
-			<div className='todoPopUp-bg' onClick={() => props.hidePopUp()}></div>
+		<div className={`todoPopUp ${popUpStatus} ${themeContext.theme}`}>
+			<div className='todoPopUp-bg' onClick={() => hidePopUp()}></div>
 			<div className='todoPopUp-wrapper'>
 				<div className='todoPopUp-inner'>
 					<div
 						className='todoPopUp-inner-closeIcon'
-						onClick={() => props.hidePopUp()}
+						onClick={() => hidePopUp()}
 					>
 						<DeleteOrCloseIcon />
 					</div>
-					<div className='todoPopUp-inner-title'>{popUpTitle}</div>
+					<div className='todoPopUp-inner-title'>
+						<h2>{popUpTitle}</h2>
+					</div>
+					<div className='todoPopUp-inner-editTask'>
+						<p className='todoPopUp-inner-editTask-description'>
+							Опис завдання
+						</p>
+						{todoPopUpInnerEditTaskTitle}
+					</div>
 					<div className='todoPopUp-inner-form'>
 						<form onSubmit={handleSubmit}>
 							{formInput}

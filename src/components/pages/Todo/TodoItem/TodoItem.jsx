@@ -6,12 +6,12 @@ import NotCompletedTaskIcon from '../../../UI/iconComponents/NotCompletedTaskIco
 import CompletedTaskIcon from '../../../UI/iconComponents/CompletedTaskIcon/CompletedTaskIcon';
 import EditTaskIcon from '../../../UI/iconComponents/EditTaskIcon/EditTaskIcon';
 import DeleteOrCloseIcon from '../../../UI/iconComponents/DeleteOrCloseIcon/DeleteOrCloseIcon';
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
+import UserTaskContext from '../../../../contexts/UserTask/UserTaskContext';
 
-const TodoItem = (props) => {
+const TodoItem = ({ task, showPopUp }) => {
 	const themeContext = useContext(ThemeContext);
-
-	const task = props.task;
+	const userTaskContext = useContext(UserTaskContext);
 
 	const taskStatusIcon = task.completed ? (
 		<CompletedTaskIcon />
@@ -22,30 +22,30 @@ const TodoItem = (props) => {
 	return (
 		<div className={`todoItem ${themeContext.theme}`}>
 			<div className='todoItem-toggleStatus'>
-				<button onClick={() => props.toggleTaskStatus(task.id)}>
+				<button onClick={() => userTaskContext.toggleTaskStatus(task)}>
 					{taskStatusIcon}
 				</button>
 			</div>
 			<div className='todoItem-itemTitle'>
 				<p
 					onClick={() => {
-						props.showPopUp(task);
+						showPopUp(task);
 					}}
 				>
-					{task.title}
+					{task.description}
 				</p>
 			</div>
 			<div className='todoItem-editItem'>
 				<button
 					onClick={() => {
-						props.showPopUp(task);
+						showPopUp(task);
 					}}
 				>
 					<EditTaskIcon />
 				</button>
 			</div>
 			<div className='todoItem-deleteItem'>
-				<button onClick={() => props.deleteTask(task.id)}>
+				<button onClick={() => userTaskContext.deleteTask(task)}>
 					<DeleteOrCloseIcon />
 				</button>
 			</div>

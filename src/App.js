@@ -1,39 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import React from 'react';
 
-import Todo from './pages/Todo';
+import Router from './components/Router';
 
-import ThemeContext from './contexts/ThemeContext';
+import ThemeContextProv from './contexts/Theme/ThemeContextProv';
+import UserContextProv from './contexts/User/UserContextProv';
+import UserTaskContextProv from './contexts/UserTask/UserTaskContextProv';
 
 const App = () => {
-	let oldTheme = localStorage.getItem('Theme');
-	const [theme, setTheme] = useState(oldTheme || 'light-theme');
-
-	const newTheme = () => {
-		const updateTheme = theme === 'light-theme' ? 'dark-theme' : 'light-theme';
-		setTheme(updateTheme);
-	};
-
-	useEffect(() => {
-		localStorage.setItem('Theme', theme);
-	}, [theme]);
-
-	const themeContext = {
-		theme: theme,
-		setTheme: newTheme,
-	};
-
 	return (
 		<div className='App'>
-			<ThemeContext.Provider value={themeContext}>
-				<HashRouter>
-					<Switch>
-						<Route path={['/', '/index', '/index.html']} exact>
-							<Todo />
-						</Route>
-					</Switch>
-				</HashRouter>
-			</ThemeContext.Provider>
+			<ThemeContextProv>
+				<UserContextProv>
+					<UserTaskContextProv>
+						<Router />
+					</UserTaskContextProv>
+				</UserContextProv>
+			</ThemeContextProv>
 		</div>
 	);
 };

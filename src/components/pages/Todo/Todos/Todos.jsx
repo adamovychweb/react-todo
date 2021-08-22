@@ -1,26 +1,18 @@
 import React, { useContext } from 'react';
 import TodoItem from '../TodoItem';
 import './todos.scss';
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
 
-const Todos = (props) => {
+const Todos = ({ todosArr, showPopUp, children }) => {
 	const themeContext = useContext(ThemeContext);
 
-	const todos = props.todosArr;
-
-	const todoTasks = todos.map((task) => (
-		<TodoItem
-			task={task}
-			key={`task${task.id}`}
-			showPopUp={props.showPopUp}
-			toggleTaskStatus={props.toggleTaskStatus}
-			deleteTask={props.deleteTask}
-		/>
+	const todoTasks = todosArr.map((task) => (
+		<TodoItem task={task} key={task._id} showPopUp={showPopUp} />
 	));
 
 	return (
 		<div className={`todos ${themeContext.theme}`}>
-			{props.children}
+			{children}
 			{todoTasks.reverse()}
 		</div>
 	);

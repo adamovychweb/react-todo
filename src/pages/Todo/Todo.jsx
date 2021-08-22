@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import ThemeContext from '../../contexts/ThemeContext';
+import ThemeContext from '../../contexts/Theme/ThemeContext';
 
 import Header from '../../components/Header/Header';
 import Todos from '../../components/pages/Todo/Todos';
@@ -9,75 +9,11 @@ import AddNewTaskIcon from '../../components/UI/iconComponents/AddNewTaskIcon/Ad
 
 import './todo.scss';
 
+import UserTaskContext from '../../contexts/UserTask/UserTaskContext';
+
 const Todo = () => {
 	const themeContext = useContext(ThemeContext);
-
-	const oldTaskIndex = Number(localStorage.getItem('taskIndex'));
-	const [taskIndex, setTaskIndex] = useState(oldTaskIndex || 0);
-
-	const newTaskIndex = () => {
-		const index = taskIndex + 1;
-		setTaskIndex(index);
-		localStorage.setItem('taskIndex', index);
-	};
-
-	const oldTodos = JSON.parse(localStorage.getItem('Todos'));
-	const [todos, setTodos] = useState(oldTodos || []);
-
-	useEffect(() => {
-		console.log();
-		console.log('Todos:', todos);
-	}, [todos]);
-
-	const addTask = (title, description) => {
-		if (title === '') {
-			alert('Заповніть назву завдання');
-		} else {
-			const newItem = {
-				id: taskIndex,
-				title: title,
-				description: description,
-				completed: false,
-			};
-			setTodos([...todos, newItem]);
-			setTodoPopUP('hidden');
-			newTaskIndex();
-		}
-	};
-
-	const saveEditTask = (title, description, id) => {
-		if (title === '') {
-			alert('Заповніть назву завдання');
-		} else {
-			setTodos([
-				...todos.map((task) =>
-					task.id === id
-						? { ...task, title: title, description: description }
-						: { ...task }
-				),
-			]);
-			setTodoPopUP('hidden');
-		}
-	};
-
-	const toggleTaskStatus = (id) => {
-		setTodos([
-			...todos.map((task) =>
-				task.id === id ? { ...task, completed: !task.completed } : { ...task }
-			),
-		]);
-	};
-
-	const deleteTask = (id) => {
-		setTodos([...todos.filter((task) => task.id !== id)]);
-	};
-
-	useEffect(() => {
-		localStorage.setItem('Todos', JSON.stringify(todos));
-	}, [todos]);
-
-	const activeTodos = todos.filter((task) => task.completed === false);
-	const completedTodos = todos.filter((task) => task.completed === true);
+	const userTaskContext = useContext(UserTaskContext);
 
 	const [todoPopUP, setTodoPopUP] = useState('hidden');
 
@@ -88,6 +24,10 @@ const Todo = () => {
 		setTaskToEdit(task);
 	};
 
+	useEffect(() => {
+		userTaskContext.getAllTask();
+	}, []);
+
 	const hidePopUp = () => {
 		setTodoPopUP('hidden');
 	};
@@ -97,22 +37,17 @@ const Todo = () => {
 			<Header />
 			<main className='container'>
 				<div className='todo-content'>
-					<Todos
-						todosArr={activeTodos}
-						showPopUp={showPopUp}
-						toggleTaskStatus={toggleTaskStatus}
-						deleteTask={deleteTask}
-					>
+					<Todos todosArr={userTaskContext.activeTodos} showPopUp={showPopUp}>
 						<div className='todos-top'>
 							<h2>Заплановані</h2>
 							<div className='todos-top-leftTasks'>
 								<p>Залишилось:</p>
-								<p>{activeTodos.length}</p>
+								<p>{userTaskContext.activeTodos.length}</p>
 							</div>
 						</div>
 
 						<div className='todos-button'>
-							<button onClick={() => showPopUp(false)}>
+							<button onClick={() => showPopUp()}>
 								<div className='todos-button-inner'>
 									<AddNewTaskIcon />
 									<p className='todos-button-inner-text'>
@@ -124,16 +59,14 @@ const Todo = () => {
 					</Todos>
 
 					<Todos
-						todosArr={completedTodos}
+						todosArr={userTaskContext.completedTodos}
 						showPopUp={showPopUp}
-						toggleTaskStatus={toggleTaskStatus}
-						deleteTask={deleteTask}
 					>
 						<div className='todos-top todos-completed'>
 							<h2>Виконані</h2>
 							<div className='todos-top-leftTasks'>
 								<p>Всього:</p>
-								<p>{completedTodos.length}</p>
+								<p>{userTaskContext.completedTodos.length}</p>
 							</div>
 						</div>
 					</Todos>
@@ -142,8 +75,6 @@ const Todo = () => {
 				<TodoPopUp
 					popUpStatus={todoPopUP}
 					taskToEdit={taskToEdit}
-					addTask={addTask}
-					saveEditTask={saveEditTask}
 					hidePopUp={hidePopUp}
 				/>
 			</main>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import './userProfileIcon.scss';
 
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
 
 const UserProfileIcon = () => {
 	const themeContext = useContext(ThemeContext);

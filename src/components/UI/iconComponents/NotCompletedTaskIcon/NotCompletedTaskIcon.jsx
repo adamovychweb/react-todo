@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './notCompletedTaskIcon.scss';
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
 
 const NotCompletedTaskIcon = () => {
 	const themeContext = useContext(ThemeContext);

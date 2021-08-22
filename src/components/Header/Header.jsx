@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import ThemeContext from '../../contexts/ThemeContext';
+import ThemeContext from '../../contexts/Theme/ThemeContext';
 
 import LogoIcon from '../UI/iconComponents/LogoIcon';
 import ChangeThemeButton from '../UI/ChangeThemeButton';
+
+import UserProfile from '../UserProfile/UserProfile';
 
 import './header.scss';
 
@@ -15,6 +17,7 @@ const Header = () => {
 					<LogoIcon width='240' height='96' />
 
 					<ChangeThemeButton />
+					<UserProfile />
 				</div>
 			</div>
 		</div>

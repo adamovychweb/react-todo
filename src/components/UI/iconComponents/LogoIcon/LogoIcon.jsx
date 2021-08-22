@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import './logoIcon.scss';
 
-import ThemeContext from '../../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/Theme/ThemeContext';
 
 const LogoSvg = () => {
 	const themeContext = useContext(ThemeContext);
